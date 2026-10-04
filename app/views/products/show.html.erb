@@ -1,0 +1,63 @@
+<h1><%= @product.name %></h1>
+
+<p>
+  <strong>Description:</strong><br>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  $<%= @product.price %>
+</p>
+
+<p>
+  <strong>Inventory:</strong>
+  <%= @product.inventory_count %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+
+  <% if @product.in_stock? %>
+    <span class="in-stock">In stock</span>
+  <% else %>
+    <span class="out-of-stock">Out of stock</span>
+  <% end %>
+</p>
+
+<% if @product.in_stock? %>
+  <%= button_to "Buy",
+        buy_product_path(@product),
+        method: :post,
+        class: "buy-button" %>
+<% else %>
+
+  <h3>Get notified when this product is back in stock</h3>
+
+  <%= form_with model: [@product, Subscriber.new] do |form| %>
+    <div>
+      <%= form.label :email %>
+      <%= form.email_field :email, required: true %>
+    </div>
+
+    <div>
+      <%= form.submit "Subscribe" %>
+    </div>
+  <% end %>
+
+<% end %>
+
+<p>
+  <%= link_to "Back", products_path %>
+
+  <% if authenticated? %>
+    | <%= link_to "Edit", edit_product_path(@product) %>
+  <% end %>
+</p>
+
+<% if authenticated? %>
+  <%= button_to "Delete",
+        @product,
+        method: :delete,
+        data: { turbo_confirm: "Are you sure?" } %>
+<% end %>

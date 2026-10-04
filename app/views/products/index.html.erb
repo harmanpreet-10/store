@@ -1,0 +1,46 @@
+<h1>Products</h1>
+
+<% if authenticated? %>
+  <p>
+    <%= link_to "New Product", new_product_path %>
+  </p>
+<% end %>
+
+<% @products.each do |product| %>
+  <div class="product">
+
+    <h2><%= product.name %></h2>
+
+    <p>
+      <strong>Description:</strong><br>
+      <%= product.description %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      $<%= product.price %>
+    </p>
+
+    <p>
+      <strong>Inventory:</strong>
+      <%= product.inventory_count %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+
+      <% if product.in_stock? %>
+        <span class="in-stock">In stock</span>
+      <% else %>
+        <span class="out-of-stock">Out of stock</span>
+      <% end %>
+    </p>
+
+    <%= link_to "View", product_path(product) %>
+
+    <% if authenticated? %>
+      | <%= link_to "Edit", edit_product_path(product) %>
+    <% end %>
+
+  </div>
+<% end %>

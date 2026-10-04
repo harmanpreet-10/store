@@ -1,0 +1,94 @@
+/*
+ * This is the main stylesheet for the Store application.
+ */
+
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  color: #333;
+}
+
+a {
+  color: #0066cc;
+}
+
+/* Flash messages */
+
+.notice {
+  color: green;
+  font-weight: bold;
+}
+
+.alert {
+  color: red;
+  font-weight: bold;
+}
+
+/* Product cards */
+
+.product {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.product h2 {
+  margin-top: 0;
+}
+
+/* Inventory status */
+
+.in-stock {
+  color: green;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  color: red;
+  font-weight: bold;
+}
+
+/* Forms */
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button,
+input[type="submit"] {
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Buy button */
+
+.buy-button {
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.buy-button:hover {
+  opacity: 0.85;
+}

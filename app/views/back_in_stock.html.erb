@@ -1,0 +1,21 @@
+<h1>Good news!</h1>
+
+<p>
+  <strong><%= @product.name %></strong> is back in stock.
+</p>
+
+<p>
+  Current inventory: <%= @product.inventory_count %>
+</p>
+
+<p>
+  Visit the store to purchase it before it sells out again.
+</p>
+
+<hr>
+
+<p>
+  No longer want these notifications?
+  <%= link_to "Unsubscribe",
+      unsubscribe_product_subscriber_url(@product, @subscriber) %>
+</p>
