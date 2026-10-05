@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "products#index"
 
   resources :products do
-    resources :subscribers, only: [:create, :destroy]
+    resources :subscribers, only: [ :create, :destroy ]
   end
 
   post "products/:id/buy", to: "products#buy", as: :buy_product
